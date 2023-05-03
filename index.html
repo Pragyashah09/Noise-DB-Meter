@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noice Tracking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        
+        <ul>
+            <li class="logo"><img src="./images/logo2.png" alt="" srcset=""></li>
+
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#db-meter">DB-Meter</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="header" id="main">
+
+        <h1 class="content"><span>Noise </span>Tracking</h1>
+        <img src="./images/img1.png" alt="">
+    </div>
+
+
+    <div class="about" id="about">
+        <h1>About</h1>
+
+        <div class="data">
+            <img src="./images/img2.jpg" alt="">
+            <p>Simple Webinterface to estimate the noise level in Decibels. <br>
+                Values are not precise, but mainly represent differencies in noise levels in a short period of time.
+                <br> <br>
+                I tried to get the noise level for different frequencies, take the average out of them, and then 
+                again take the average of all such values within the time intervall of a specific refresh_rate 
+                (in msec). Afterwards I applied the formula 20*log10(noiseValue) to get a number indication near to 
+                Decibel, and added the offset value. <br> <br>
+                To cope with the environmental noises and different microphone sensitivities, I have set an 
+                adjustable offset value, which just increases
+                or decreases the dBs. As default, the value of 30 has been chosen, as it yields the best results (at
+                least for me). Furthermore, the refresh rate for the dBs is adjustable too (default 1 sec).
+            </p>
+        </div>
+    </div>
+
+
+
+
+    <div class="db-meter" id="db-meter">
+        <h1><span class="one">Decibel</span> Meter</h1>
+        <main>
+            <h2><span id="db">-</span> dB</h2>
+            <div id='visuals'></div>
+        </main>
+        <div class="inputs">
+            <div class="input">
+                <label for="offset">Offset value : <span id='offset_value'>-</span> dB</label>
+                <br>
+                <input type="range" min="-30" max="70" value="30" class="slider" id="offset">
+            </div>
+            <div class="input">
+                <label for="refresh_rate">Refresh every: <span id='refresh_value'>-</span> ms</label>
+                <br>
+                <input type="range" min="100" max="2000" value="500" class="slider" id="refresh_rate">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Made By ❤<span> Pragya Shah</span> </p>
+    </footer>
+    <script src="index.js"></script>
+
+
+</body>
+
+</html>
